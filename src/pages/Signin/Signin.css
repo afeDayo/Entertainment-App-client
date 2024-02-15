@@ -1,0 +1,108 @@
+.up-card {
+  background-color: #161d2f;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: start;
+  margin: 0 auto;
+  margin-top: 77.59px;
+  padding: 32px;
+  width: 100%;
+  max-width: 336px;
+  border-radius: 20px;
+}
+
+.up-icon {
+  margin-top: 78.41px;
+}
+
+.up-title {
+  color: #ffffff;
+  font-weight: 400;
+  margin-top: 0;
+  margin-bottom: 40px;
+}
+
+.up-in {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  justify-content: center;
+  align-items: center;
+  width: 336px;
+}
+
+.up-in input {
+  padding: 0px 15px 18px 15px;
+  width: 100%;
+  max-width: 306px;
+  border: none;
+  background-color: #161d2f;
+  border-bottom: 1px solid #5a698f;
+  color: #ffffff;
+  outline: none;
+  caret-color: #fc4747;
+  cursor: pointer;
+}
+
+.up-in input:focus {
+  border: 0;
+  border-bottom: 1px solid #ffffff;
+}
+
+.up-in input::placeholder {
+  font-size: 15px;
+  font-weight: 400;
+  color: #5a698f;
+}
+
+.up-in button {
+  width: 100%;
+  max-width: 336px;
+  font-size: 15px;
+  font-weight: 400;
+  padding: 14.5px 0;
+  color: #ffffff;
+  background-color: #fc4747;
+  border: none;
+  cursor: pointer;
+  border-radius: 10px;
+}
+
+.up-in button:hover {
+  background-color: #ffffff;
+  color: #10141e;
+}
+
+.up-log p {
+  font-size: 15px;
+  font-weight: 400;
+  color: #ffffff;
+  text-align: center;
+  margin-top: 24px;
+  margin-bottom: 0;
+}
+
+.up-log p span {
+  color: #fc4747;
+  cursor: pointer;
+}
+
+.email-div,
+.pword-div,
+.rpword-div {
+  position: relative;
+}
+
+.cant {
+  position: absolute;
+  color: #fc4747;
+  font-size: 13px;
+  font-weight: 300;
+  top: 0;
+  right: 0;
+}
+
+.up-in input.error {
+  border-bottom: 1px solid #fc4747;
+}

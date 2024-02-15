@@ -1,0 +1,33 @@
+.filter {
+  position: absolute;
+  display: flex;
+  align-items: start;
+  justify-content: start;
+  left: 164px;
+  top: 64px;
+  gap: 20px;
+}
+
+.in-sch input {
+  padding: 0px 15px 15px 0px;
+  width: 1080px;
+  border: none;
+  background-color: #10141e;
+  border: none;
+  font-size: 24px;
+  color: #ffffff;
+  outline: none;
+  caret-color: #fc4747;
+  cursor: pointer;
+}
+
+.in-sch input:focus {
+  border: 0;
+  border-bottom: 1px solid #5a698f;
+}
+
+.in-sch input::placeholder {
+  font-size: 24px;
+  font-weight: 400;
+  color: #5a698f;
+}
