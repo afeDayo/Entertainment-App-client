@@ -16,7 +16,7 @@ const Home = () => {
   }
 
   if (error) {
-    return <p className="text-white">Error fetching data: {error}</p>;
+    return <p className="text-white">{error}: Kindly Refresh</p>;
   }
 
   if (userInput) {
