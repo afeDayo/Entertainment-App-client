@@ -1,17 +1,46 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { useLocation, useSearchParams } from "react-router-dom";
+import teloscope from "../../assets/Shape (1).png";
 import "./Search.css";
-import search from "../../assets/search.png";
 
 const Search = () => {
+  const [searchParams, setSearchParams] = useSearchParams();
+  const [userInput, setUserInput] = useState("");
+  const [placeholder, setPlaceholder] = useState(
+    "Search for movies, TV series, or bookmarked shows"
+  );
+
+  const location = useLocation();
+
+  useEffect(() => {
+    setUserInput(searchParams.get("search") || "");
+  }, [searchParams]);
+
+  useEffect(() => {
+    setPlaceholder(
+      `Search for ${
+        location.pathname === "/"
+          ? "movies, TV series"
+          : location.pathname.substring(1)
+      }`
+    );
+  }, [location]);
+
   return (
-    <div>
-      <div className="filter">
-        <div className="sch-icon">
-          <img src={search} alt="search" />
-        </div>
-        <div className="in-sch">
-          <input type="text" placeholder="Search for movies or TV series" />
-        </div>
+    <div className="search-container">
+      <div className="telo mt-1">
+        <img src={teloscope} alt="telo" />
+      </div>
+      <div className="search">
+        <input
+          onChange={(event) => {
+            setSearchParams({ search: event.target.value });
+            setUserInput(event.target.value);
+          }}
+          value={userInput}
+          type="text"
+          placeholder={placeholder}
+        />
       </div>
     </div>
   );

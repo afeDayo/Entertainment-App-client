@@ -1,33 +1,111 @@
-.filter {
-  position: absolute;
+.search-container {
   display: flex;
   align-items: start;
   justify-content: start;
-  left: 164px;
-  top: 64px;
-  gap: 20px;
+  gap: 24px;
+  margin-left: 164px;
+  margin-top: 64px;
 }
 
-.in-sch input {
-  padding: 0px 15px 15px 0px;
-  width: 1080px;
+.search input {
+  width: 1100px;
+  padding-bottom: 18px;
   border: none;
   background-color: #10141e;
-  border: none;
-  font-size: 24px;
   color: #ffffff;
+  font-size: 24px;
+  font-weight: 400;
   outline: none;
-  caret-color: #fc4747;
-  cursor: pointer;
 }
 
-.in-sch input:focus {
-  border: 0;
-  border-bottom: 1px solid #5a698f;
-}
-
-.in-sch input::placeholder {
+.search input::placeholder {
   font-size: 24px;
   font-weight: 400;
   color: #5a698f;
+}
+
+.search input:focus {
+  border-bottom: 1px solid #5a698f;
+  caret-color: #fc4747;
+}
+
+.telo img {
+  width: 24px;
+}
+
+/* ========================================== */
+
+/* Media Query for tablets */
+@media only screen and (min-width: 768px) and (max-width: 1200px) {
+  .search-container {
+    display: flex;
+    align-items: start;
+    justify-content: start;
+    gap: 24px;
+    margin-left: 25px;
+    margin-top: 10px;
+  }
+
+  .search input {
+    max-width: 650px;
+    padding-bottom: 18px;
+    border: none;
+    background-color: #10141e;
+    color: #ffffff;
+    font-size: 24px;
+    font-weight: 400;
+    outline: none;
+  }
+
+  .search input::placeholder {
+    font-size: 24px;
+    font-weight: 400;
+    color: #5a698f;
+  }
+
+  .search input:focus {
+    border-bottom: 1px solid #5a698f;
+    caret-color: #fc4747;
+  }
+}
+
+/* ==================================== */
+
+/* Media Query for mobile devices */
+@media only screen and (max-width: 768px) {
+  .search-container {
+    display: flex;
+    align-items: start;
+    justify-content: start;
+    gap: 24px;
+    margin-left: 16px;
+    margin-top: 24px;
+  }
+
+  .search input {
+    max-width: 260px;
+    padding-bottom: 12px;
+    border: none;
+    background-color: #10141e;
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: 400;
+    outline: none;
+  }
+
+  .search input::placeholder {
+    font-size: 16px;
+    font-weight: 400;
+    color: #5a698f;
+  }
+
+  .search input:focus {
+    border-bottom: 1px solid #5a698f;
+    caret-color: #fc4747;
+  }
+
+  .telo img {
+    width: 18px;
+    margin-bottom: 8px;
+  }
 }

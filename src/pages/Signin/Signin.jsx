@@ -1,61 +1,67 @@
 import React, { useState } from "react";
-import "./Signin.css";
-import movieicon from "../../assets/Movie.png";
+import { Link } from "react-router-dom";
 import { useForm } from "react-hook-form";
+import Spinner from "../../utils/Spinner";
+import useAuth from "../../hooks/useAuth";
+import "./Signin.css";
 
-const Signin = () => {
+const Input = ({ type, placeholder, error, register, name }) => (
+  <div className="cant">
+    <input
+      type={type}
+      placeholder={placeholder}
+      className={error ? "error" : ""}
+      {...register(name, { required: true })}
+    />
+    {error && error.type === "required" && <span>Can't be empty</span>}
+  </div>
+);
+
+const SignIn = () => {
   const [passwordVisible, setPasswordVisible] = useState(false);
-
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm();
 
+  const { handleSignInUser, authenticating } = useAuth();
+
+  const btnText = authenticating ? <Spinner /> : "Login to your account";
+
   const onSubmit = (data) => {
-    console.log(data);
+    handleSignInUser(data);
   };
 
   return (
-    <div>
-      <div className="up-icon">
-        <img src={movieicon} alt="movieicon" />
-      </div>
-      <form className="up-card" action="" onSubmit={handleSubmit(onSubmit)}>
-        <h1 className="up-title">Login</h1>
-        <div className="up-in">
-          <div className="email-div">
-            <input
-              type="email"
-              placeholder="Email address"
-              className={errors.email ? "error" : ""}
-              {...register("email", { required: true })}
-            />
-            {errors.email && errors.email.type === "required" ? (
-              <span className="cant">Can't be empty</span>
-            ) : null}
-          </div>
-          <div className="pword-div">
-            <input
-              type={passwordVisible ? "text" : "password"}
-              placeholder="Password"
-              className={errors.password ? "error" : ""}
-              {...register("password", { required: true })}
-            />
-            {errors.password && errors.password.type === "required" ? (
-              <span className="cant">Can't be empty</span>
-            ) : null}
-          </div>
-          <button>Login to your account</button>
+    <div className="signin">
+      <form className="in-form" onSubmit={handleSubmit(onSubmit)} action="">
+        <h1 className="in-title">Login</h1>
+        <div className="in-input">
+          <Input
+            type="text"
+            placeholder="Email address"
+            error={errors.email}
+            register={register}
+            name="email"
+          />
+          <Input
+            type={passwordVisible ? "text" : "password"}
+            placeholder="Password"
+            error={errors.password}
+            register={register}
+            name="password"
+          />
+
+          <button disabled={authenticating}>{btnText}</button>
         </div>
-        <div className="up-log">
-          <p>
-            Don't have an account? <span>Sign Up</span>
-          </p>
+        <div className="dont">
+          <p className="mb-0">Don't have an account?</p>
+          <Link to="/signup">Sign Up</Link>
         </div>
       </form>
     </div>
   );
 };
 
-export default Signin;
+export default SignIn;
