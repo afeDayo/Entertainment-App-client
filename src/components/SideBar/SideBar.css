@@ -36,6 +36,13 @@
 
 .mainlo img {
   width: 40px;
+  cursor: pointer;
+}
+
+.my-dropdown {
+  z-index: 2;
+  top: -350%;
+  right: -50%;
 }
 
 /* ========================================== */
@@ -81,6 +88,10 @@
 
   .mainlo img {
     width: 32px;
+  }
+
+  .my-dropdown {
+    right: 0;
   }
 }
 
@@ -132,5 +143,9 @@
 
   .mainlo img {
     width: 24px;
+  }
+
+  .my-dropdown {
+    right: 0;
   }
 }

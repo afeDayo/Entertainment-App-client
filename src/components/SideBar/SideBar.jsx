@@ -7,11 +7,14 @@ import logo from "../../assets/entertainment app logo.png";
 import redmovie from "../../assets/Movie.png";
 import { Link, useLocation } from "react-router-dom";
 import "./SideBar.css";
+import DropDown from "./DropDown";
 
 const SideBar = () => {
   const [selected, setSelected] = useState("/");
   const [hoveredIcon, setHoveredIcon] = useState(null);
   const location = useLocation();
+
+  const [toggleDropDown, setToggleDropDown] = useState(true);
 
   useEffect(() => {
     const { pathname } = location;
@@ -87,8 +90,15 @@ const SideBar = () => {
           <FaBookmark />
         </Link>
       </div>
-      <div className="mainlo">
-        <img src={logo} alt="applogo" />
+      <div className="mainlo position-relative">
+        <img
+          onClick={() => {
+            setToggleDropDown(!toggleDropDown);
+          }}
+          src={logo}
+          alt="applogo"
+        />
+        {toggleDropDown ? <DropDown /> : null}
       </div>
     </div>
   );
