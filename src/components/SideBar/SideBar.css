@@ -92,6 +92,8 @@
 
   .my-dropdown {
     right: 0;
+    /* bottom: -200px; */
+    top: 50px;
   }
 }
 
@@ -147,5 +149,7 @@
 
   .my-dropdown {
     right: 0;
+    /* bottom: -200px; */
+    top: 50px;
   }
 }
